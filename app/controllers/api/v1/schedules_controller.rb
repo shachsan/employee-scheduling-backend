@@ -12,6 +12,8 @@ class Api::V1::SchedulesController < ApplicationController
             @schedules.push(schedule)
         end 
         
+        # @schedules=Schedule.all
+        
         render json: @schedules
     end
 
