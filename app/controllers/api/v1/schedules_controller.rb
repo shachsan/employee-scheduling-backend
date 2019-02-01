@@ -6,12 +6,20 @@ class Api::V1::SchedulesController < ApplicationController
     end
 
     def create
-        @schedule=Schedule.create(schedule_params)
-        render json: @schedule
+        @schedules=[]
+        schedule_params[:schedules].each do |s|
+            schedule = Schedule.create!(s)
+            @schedules.push(schedule)
+        end 
+        
+        render json: @schedules
     end
 
     private 
     def schedule_params
-        params.permit(:date, :associate_id, :shift_id, :department_id)
+        params.permit(:schedules=>[
+            :date, :associate_id, :shift_id, :department_id
+            ]
+        )
     end
 end
