@@ -1,7 +1,7 @@
 class Api::V1::SchedulesController < ApplicationController
 
     def index
-        @schedules=Schedule.all 
+        @schedules=Schedule.all.order('date')
         render json: @schedules
     end
 
@@ -11,9 +11,7 @@ class Api::V1::SchedulesController < ApplicationController
             schedule = Schedule.create!(s)
             @schedules.push(schedule)
         end 
-        
-        # @schedules=Schedule.all
-        
+
         render json: @schedules
     end
 
