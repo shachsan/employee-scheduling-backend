@@ -5,6 +5,12 @@ class Api::V1::SchedulesController < ApplicationController
         render json: @schedules
     end
 
+    def destroy
+        params[:id].split(',').each do |id|
+            Schedule.find(id).destroy
+        end 
+    end 
+
     def create
         @schedules=[]
         schedule_params[:schedules].each do |s|
