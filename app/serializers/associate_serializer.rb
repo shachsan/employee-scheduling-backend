@@ -1,3 +1,3 @@
 class AssociateSerializer < ActiveModel::Serializer
-  attributes :id, :name, :position, :hours_per_week
+  attributes :id, :name, :date_of_birth, :gender, :position, :hours_per_week
 end
