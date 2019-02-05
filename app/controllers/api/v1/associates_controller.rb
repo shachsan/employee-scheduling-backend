@@ -15,6 +15,11 @@ class Api::V1::AssociatesController < ApplicationController
         render json: @associates
     end 
 
+    def destroy
+        @associate=Associate.find(associate_params[:id])
+        @associate.destroy
+    end
+
     private
     def associate_params
         params.permit(:id, :name, :date_of_birth, :gender, :position, :department_id, :hours_per_week)
