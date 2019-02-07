@@ -11,6 +11,22 @@ class Api::V1::SchedulesController < ApplicationController
         end 
     end 
 
+    def show
+        byebug
+    end 
+
+    def updateBatch
+        byebug
+    end 
+
+    def update
+
+        byebug
+        # params[:id].split(',').each do |id|
+        #     Schedule.find(id).update
+        # end
+    end 
+
     def create
         @schedules=[]
         schedule_params[:schedules].each do |s|
