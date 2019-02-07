@@ -5,7 +5,7 @@ Rails.application.routes.draw do
       resources :departments, :schedules, :associates, :shifts, :dept_shifts, :users, :calendar_events
         post '/login', to: 'auth#create'
         get '/current_user', to: 'auth#show'
-        get '/updateBatchSchs', to: 'schedules#updateBatch'
+        post '/updateBatchSchs', to: 'schedules#updateBatch'
     end
   end
 end

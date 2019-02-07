@@ -11,21 +11,16 @@ class Api::V1::SchedulesController < ApplicationController
         end 
     end 
 
-    def show
-        byebug
-    end 
+  
 
     def updateBatch
-        byebug
+        schedule_params[:schedules].each do |s|
+            # byebug
+            schedule=Schedule.find(s.id)
+            schedule.update(s)
+        end
     end 
 
-    def update
-
-        byebug
-        # params[:id].split(',').each do |id|
-        #     Schedule.find(id).update
-        # end
-    end 
 
     def create
         @schedules=[]
@@ -40,7 +35,7 @@ class Api::V1::SchedulesController < ApplicationController
     private 
     def schedule_params
         params.permit(:schedules=>[
-            :date, :associate_id, :shift_id, :department_id
+            :id, :date, :associate_id, :shift_id, :department_id
             ]
         )
     end
