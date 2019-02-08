@@ -16,7 +16,7 @@ class Api::V1::SchedulesController < ApplicationController
     def updateBatch
         schedule_params[:schedules].each do |s|
             # byebug
-            schedule=Schedule.find(s.id)
+            schedule=Schedule.find(s["id"])
             schedule.update(s)
         end
     end 
