@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_05_045332) do
+ActiveRecord::Schema.define(version: 2019_02_10_141203) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,13 @@ ActiveRecord::Schema.define(version: 2019_02_05_045332) do
     t.integer "hours_per_week"
     t.date "date_of_birth"
     t.string "gender"
+    t.boolean "monday"
+    t.boolean "tuesday"
+    t.boolean "wednesday"
+    t.boolean "thursday"
+    t.boolean "friday"
+    t.boolean "saturday"
+    t.boolean "sunday"
     t.index ["department_id"], name: "index_associates_on_department_id"
   end
 

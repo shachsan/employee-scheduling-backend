@@ -9,6 +9,12 @@ class Api::V1::AssociatesController < ApplicationController
         render json: @associate
     end
 
+    def update
+        @associate=Associate.find(associate_params[:id])
+        @associate.update(associate_params[:availability])
+        render json: @associate
+    end
+
     def show
         # byebug
         @associates = Associate.where(department_id:associate_params[:id])
@@ -22,6 +28,7 @@ class Api::V1::AssociatesController < ApplicationController
 
     private
     def associate_params
-        params.permit(:id, :name, :date_of_birth, :gender, :position, :department_id, :hours_per_week)
+        params.permit(:id, :name, :date_of_birth, :gender, :position, :department_id, :hours_per_week, :availability, :monday, :tuesday, :wednesday,
+            :thursday, :friday, :saturday, :sunday)
     end
 end
